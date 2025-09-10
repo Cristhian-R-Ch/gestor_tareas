@@ -17,7 +17,7 @@ class Task(models.Model):
 
     @property
     def dias_restantes(self):
-        """Devuelve los días restantes hasta la fecha de vencimiento."""
+        """Devuelve los días restantes hasta la fecha de vencimiento """
         if self.due_date:
             return (self.due_date - date.today()).days
         return None

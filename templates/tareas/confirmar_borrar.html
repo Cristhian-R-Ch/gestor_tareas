@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrar Tarea</title>
+</head>
+<body>
+    <h1>¿Seguro que quieres borrar la tarea "{{ tarea.title }}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, borrar</button>
+    </form>
+    <a href="{% url 'tareas:lista' %}">Cancelar</a>
+</body>
+</html>

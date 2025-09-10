@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ accion }} Tarea</title>
+</head>
+<body>
+    <h1>{{ accion }} Tarea</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{{ accion }}</button>
+    </form>
+    <a href="{% url 'tareas:lista' %}">Volver</a>
+</body>
+</html>
