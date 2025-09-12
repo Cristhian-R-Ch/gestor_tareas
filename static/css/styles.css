@@ -1,0 +1,128 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto; /* Centrar box */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Lista de tareas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* solapamiento btns */
+}
+
+li.completed {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+li.incomplete {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Separacion titulo y acciones */
+.task-title {
+    flex: 1 1 auto;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    margin-left: 10px;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+button, .btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+button:hover, .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Botones de eliminar */
+button.danger, .btn.danger {
+    background-color: #dc3545;
+}
+
+button.danger:hover, .btn.danger:hover {
+    background-color: #a71d2a;
+}
+
+/* Contenedor de botones en el formulario */
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Centrar el login */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto; /* Centrado V. / H. */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Campos del formulario alineados */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;           /* Todos los campos igual ancho */
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Evitar que padding rompa el ancho */
+}
+
+/* Mensaje de error */
+.error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-weight: bold;
+}

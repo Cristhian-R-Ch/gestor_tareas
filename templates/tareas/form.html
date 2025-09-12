@@ -1,16 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ accion }} Tarea</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}{{ accion }} Tarea{% endblock %}
+
+{% block content %}
+<div class="container">
     <h1>{{ accion }} Tarea</h1>
+    
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">{{ accion }}</button>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn">{{ accion }}</button>
+            <a href="{% url 'tareas:lista' %}" class="btn">Volver a lista</a>
+        </div>
     </form>
-    <a href="{% url 'tareas:lista' %}">Volver</a>
-</body>
-</html>
+</div>
+{% endblock %}

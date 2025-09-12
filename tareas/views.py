@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, logout
+from django.contrib.auth.models import User
 from .models import Task
 from .forms import TaskForm
-
 
 @login_required
 def lista_tareas(request):
@@ -54,3 +55,12 @@ def toggle_completed(request, pk):
     tarea.is_completed = not tarea.is_completed
     tarea.save()
     return redirect('tareas:lista')
+
+def login_guest(request):
+    demo_user = User.objects.get(username='demo')
+    login(request, demo_user)
+    return redirect('tareas:lista')
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')

@@ -1,35 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Mis Tareas</title>
-    <head>
-    <meta charset="UTF-8">
-    <title>Mis Tareas</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-</head>
-<body>
-    <h1>Mis Tareas</h1>
-    <a href="{% url 'tareas:nueva' %}">Nueva tarea</a>
-    <ul>
-        {% for tarea in tareas %}
-            <li>
+{% extends "base.html" %}
+
+{% block title %}Mis Tareas{% endblock %}
+
+{% block content %}
+<p><a href="{% url 'logout' %}" class="btn">Cerrar sesión</a></p>
+
+<h1>Mis Tareas</h1>
+<a href="{% url 'tareas:nueva' %}" class="btn">Nueva tarea</a>
+
+<ul>
+    {% for tarea in tareas %}
+        <li class="{% if tarea.is_completed %}completed{% else %}incomplete{% endif %}">
+            <span class="task-title">
                 <strong>{{ tarea.title }}</strong> (vence: {{ tarea.due_date }})
-                {% if tarea.is_completed %}
-                    <i class="fa-solid fa-circle-check" style="color: green;"></i>
-                    [<a href="{% url 'tareas:toggle' tarea.id %}">Incomplete</a>]
-                {% else %}
-                    <i class="fa-solid fa-circle-xmark" style="color: red;"></i>
-                    [<a href="{% url 'tareas:toggle' tarea.id %}">Completed</a>]
-                {% endif %}
-                [<a href="{% url 'tareas:editar' tarea.id %}">Editar</a>]
-                [<a href="{% url 'tareas:borrar' tarea.id %}">Borrar</a>]
-            </li>
-        {% empty %}
-            <li>No tienes tareas.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+            </span>
+            <span class="task-actions">
+                <a href="{% url 'tareas:toggle' tarea.id %}" class="btn">Estado</a>
+                <a href="{% url 'tareas:editar' tarea.id %}" class="btn">Editar</a>
+                <a href="{% url 'tareas:borrar' tarea.id %}" class="btn danger">Borrar</a>
+            </span>
+        </li>
+    {% empty %}
+        <li>No tienes tareas.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
