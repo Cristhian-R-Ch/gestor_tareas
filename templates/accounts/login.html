@@ -14,6 +14,7 @@
         {% csrf_token %}
         {{ form.as_p }}
 
+        <!-- Botones -->
         <div class="form-actions">
             <button type="submit" class="btn btn-secondary">Entrar</button>
             <a href="{% url 'landing' %}" class="btn btn-tertiary">Volver</a>

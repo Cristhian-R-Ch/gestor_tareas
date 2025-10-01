@@ -19,6 +19,7 @@
             <span class="task-title">
                 <strong>{{ tarea.title }}</strong> (vence: {{ tarea.due_date }})
             </span>
+            <!-- Botones -->
             <span class="task-actions">
                 <a href="{% url 'tareas:toggle' tarea.id %}" class="btn btn-tertiary">Estado</a>
                 <a href="{% url 'tareas:editar' tarea.id %}" class="btn btn-secondary">Editar</a>

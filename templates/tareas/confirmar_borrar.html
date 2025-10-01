@@ -9,6 +9,7 @@
 
     <form method="post">
         {% csrf_token %}
+        <!-- Botones -->
         <div class="form-actions">
             <button type="submit" class="btn btn-danger">Sí, borrar</button>
             <a href="{% url 'tareas:lista' %}" class="btn btn-tertiary">Cancelar</a>
