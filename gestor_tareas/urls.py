@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
-from tareas.views import logout_view
+from tareas.views import logout_view, register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name="landing.html"), name="landing"),
     path("accounts/login/", auth_views.LoginView.as_view(template_name="accounts/login.html"), name="login"),
     path("accounts/logout/", logout_view, name="logout"),
+    path('accounts/register/', register, name='register'),
 ]

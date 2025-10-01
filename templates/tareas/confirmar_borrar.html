@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Confirmar Borrar{% endblock %}
+{% block title %}Confirmar Borrado{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>¿Estás seguro que quieres borrar la tarea "{{ tarea.title }}"?</h1>
-    
+<div class="confirm-container">
+    <h1>¿Estás seguro que deseas borrar esta tarea?</h1>
+    <p><strong>{{ tarea.title }}</strong></p>
+
     <form method="post">
         {% csrf_token %}
         <div class="form-actions">
-            <button type="submit" class="btn danger">Sí, borrar</button>
-            <a href="{% url 'tareas:lista' %}" class="btn">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Sí, borrar</button>
+            <a href="{% url 'tareas:lista' %}" class="btn btn-tertiary">Cancelar</a>
         </div>
     </form>
 </div>

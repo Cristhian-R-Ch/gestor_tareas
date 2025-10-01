@@ -1,18 +1,45 @@
 {% extends "base.html" %}
 
-{% block title %}{{ accion }} Tarea{% endblock %}
+{% block title %}{{ form_title }}{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>{{ accion }} Tarea</h1>
-    
-    <form method="post">
+<div class="form-container">
+    <h1>{{ form_title }}</h1>
+
+    <form method="post" class="task-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        
+
+        <!-- Título de la tarea -->
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Título de la tarea:</label>
+            {{ form.title }}
+            {% for error in form.title.errors %}
+                <div class="error-message">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Fecha de vencimiento -->
+        <div class="form-group">
+            <label for="{{ form.due_date.id_for_label }}">Fecha de vencimiento:</label>
+            {{ form.due_date }}
+            {% for error in form.due_date.errors %}
+                <div class="error-message">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-group">
+            <label for="{{ form.description.id_for_label }}">Descripción:</label>
+            {{ form.description }}
+            {% for error in form.description.errors %}
+                <div class="error-message">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Botones -->
         <div class="form-actions">
-            <button type="submit" class="btn">{{ accion }}</button>
-            <a href="{% url 'tareas:lista' %}" class="btn">Volver a lista</a>
+            <button type="submit" class="btn btn-secondary">{{ accion }}</button>
+            <a href="{% url 'tareas:lista' %}" class="btn btn-tertiary">Volver a lista</a>
         </div>
     </form>
 </div>

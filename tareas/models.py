@@ -8,7 +8,7 @@ from datetime import date
 class Task(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
     description = models.TextField(blank=True, null=True, verbose_name="Descripción")
-    due_date = models.DateField(verbose_name="Fecha de vencimiento")
+    due_date = models.DateField(verbose_name="Fecha de vencimiento", blank=True, null=True)
     is_completed = models.BooleanField(default=False, verbose_name="Completada")
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Usuario")
 

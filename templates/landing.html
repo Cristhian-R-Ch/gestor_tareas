@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Bienvenido{% endblock %}
+
+{% block content %}
+<div class="landing-container">
+    <div class="landing-hero">
+        <h1>Gestor de Tareas</h1>
+        <p>Organiza tus tareas de forma rápida y sencilla
+            <br> Mantén todo bajo control desde cualquier lugar</p><br>
+        <div class="landing-buttons">
+            <a href="{% url 'register' %}" class="btn btn-primary">Registrarse</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary">Iniciar Sesión</a>
+            <a href="{% url 'tareas:guest_login' %}" class="btn btn-tertiary">Entrar como Invitado</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

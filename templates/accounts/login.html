@@ -3,8 +3,8 @@
 {% block title %}Iniciar Sesión{% endblock %}
 
 {% block content %}
-<div class="container login-container">
-    <h1>Iniciar sesión</h1>
+<div class="login-container">
+    <h1>Iniciar Sesión</h1>
 
     {% if form.errors %}
         <p class="error-message">Usuario o contraseña incorrectos</p>
@@ -13,9 +13,10 @@
     <form method="post" class="login-form">
         {% csrf_token %}
         {{ form.as_p }}
+
         <div class="form-actions">
-            <button type="submit" class="btn">Entrar</button>
-            <a href="{% url 'tareas:guest_login' %}" class="btn">Invitado</a>
+            <button type="submit" class="btn btn-secondary">Entrar</button>
+            <a href="{% url 'landing' %}" class="btn btn-tertiary">Volver</a>
         </div>
     </form>
 </div>

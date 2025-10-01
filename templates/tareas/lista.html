@@ -3,10 +3,15 @@
 {% block title %}Mis Tareas{% endblock %}
 
 {% block content %}
-<p><a href="{% url 'logout' %}" class="btn">Cerrar sesión</a></p>
+<div class="top-actions">
+    <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar sesión</a>
+</div>
 
 <h1>Mis Tareas</h1>
-<a href="{% url 'tareas:nueva' %}" class="btn">Nueva tarea</a>
+
+<div class="task-header">
+    <a href="{% url 'tareas:nueva' %}" class="btn btn-primary">Nueva tarea</a>
+</div>
 
 <ul>
     {% for tarea in tareas %}
@@ -15,9 +20,9 @@
                 <strong>{{ tarea.title }}</strong> (vence: {{ tarea.due_date }})
             </span>
             <span class="task-actions">
-                <a href="{% url 'tareas:toggle' tarea.id %}" class="btn">Estado</a>
-                <a href="{% url 'tareas:editar' tarea.id %}" class="btn">Editar</a>
-                <a href="{% url 'tareas:borrar' tarea.id %}" class="btn danger">Borrar</a>
+                <a href="{% url 'tareas:toggle' tarea.id %}" class="btn btn-tertiary">Estado</a>
+                <a href="{% url 'tareas:editar' tarea.id %}" class="btn btn-secondary">Editar</a>
+                <a href="{% url 'tareas:borrar' tarea.id %}" class="btn btn-danger">Borrar</a>
             </span>
         </li>
     {% empty %}

@@ -1,128 +1,303 @@
-/* Estilo general */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 20px;
+/* =======================
+   Base
+   ======================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e2f ;
+    color: #e0e0e0; /* texto */
+    line-height: 1.6;
+}
+
+/* =======================
+   Contenedores y Layout
+   ======================= */
 .container {
     max-width: 600px;
-    margin: 0 auto; /* Centrar box */
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background: #2a2a3d;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 h1 {
-    color: #333;
     margin-bottom: 20px;
+    color: #f5f5f5;
+    text-align: center;
 }
 
-/* Lista de tareas */
+/* =======================
+   Botones Globales
+   ======================= */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Colores más vibrantes en modo oscuro */
+.btn-primary { background-color: #2196f3; color: #fff; }
+.btn-primary:hover { background-color: #1976d2; }
+
+.btn-secondary { background-color: #4caf50; color: #fff; }
+.btn-secondary:hover { background-color: #388e3c; }
+
+.btn-tertiary { background-color: #6c757d; color: #fff; }
+.btn-tertiary:hover { background-color: #5a6268; }
+
+.btn-danger { background-color: #e53935; color: #fff; }
+.btn-danger:hover { background-color: #b71c1c; }
+
+/* =======================
+   Formularios
+   ======================= */
+.form-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background: #2a2a3d;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.form-container h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #f5f5f5;
+}
+
+.task-form input,
+.task-form select,
+.task-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #1e1e2f;
+    color: #e0e0e0;
+}
+
+.task-form input:focus,
+.task-form select:focus,
+.task-form textarea:focus {
+    border-color: #2196f3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33,150,243,0.5);
+}
+
+.task-form .error-message {
+    color: #ff5252;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* =======================
+   Landing
+   ======================= */
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.landing-hero {
+    max-width: 600px;
+    background: #2a2a3d;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.landing-hero h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
+
+.landing-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* =======================
+   Lista de Tareas
+   ======================= */
 ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0 15px;
+    margin-top: 20px;
 }
 
 li {
-    background-color: #fff;
-    margin-bottom: 10px;
-    padding: 10px 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #2e2e40;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* solapamiento btns */
+    flex-wrap: wrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    background: #383850;
 }
 
 li.completed {
-    background-color: #d4edda;
+    background: #d4edda;
     color: #155724;
 }
 
+li.completed .task-title {
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
 li.incomplete {
-    background-color: #f8d7da;
+    background: #f8d7da;
     color: #721c24;
 }
 
-/* Separacion titulo y acciones */
 .task-title {
     flex: 1 1 auto;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .task-actions {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
-/* Enlaces */
+.task-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+}
+
+.top-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.task-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    padding: 0 15px 10px 15px;
+    border-bottom: 1px solid #444;
+}
+
+/* =======================
+   Enlaces
+   ======================= */
 a {
     text-decoration: none;
-    margin-left: 10px;
-    color: #007bff;
+    color: #64b5f6;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #90caf9;
 }
 
-/* Botones */
-button, .btn {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-}
-
-button:hover, .btn:hover {
-    background-color: #0056b3;
-}
-
-/* Botones de eliminar */
-button.danger, .btn.danger {
-    background-color: #dc3545;
-}
-
-button.danger:hover, .btn.danger:hover {
-    background-color: #a71d2a;
-}
-
-/* Contenedor de botones en el formulario */
-.form-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-/* Centrar el login */
+/* =======================
+   Login / Register Container
+   ======================= */
 .login-container {
     max-width: 400px;
-    margin: 50px auto; /* Centrado V. / H. */
-    padding: 20px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: #2a2a3d;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     text-align: center;
 }
 
-/* Campos del formulario alineados */
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;           /* Todos los campos igual ancho */
-    padding: 8px 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Evitar que padding rompa el ancho */
+.login-container h1 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #f5f5f5;
 }
 
-/* Mensaje de error */
-.error-message {
-    color: red;
+.login-form input {
+    width: 100%;
+    padding: 10px 12px;
     margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #1e1e2f;
+    color: #e0e0e0;
+}
+
+.login-form input:focus {
+    border-color: #2196f3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33,150,243,0.5);
+}
+
+.login-form .error-message {
+    color: #ff5252;
     font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* =======================
+   Confirmar Borrar Tarea
+   ======================= */
+.confirm-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px 25px;
+    background: #2a2a3d;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.confirm-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
+
+.confirm-container p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #e0e0e0;
 }
