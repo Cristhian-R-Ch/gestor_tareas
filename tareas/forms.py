@@ -12,10 +12,12 @@ class TaskForm(forms.ModelForm):
 
     class Meta:
         model = Task
-        fields = ['title', 'description', 'due_date', 'is_completed']
+        fields = ['title', 'description', 'due_date', 'priority', 'is_completed']
         labels = {
             'title': 'Título',
             'description': 'Descripción',
+            'due_date': 'Fecha de vencimiento',
+            'priority': 'Prioridad',
             'is_completed': 'Completada',
         }
 

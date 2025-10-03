@@ -9,7 +9,7 @@
     <form method="post" class="task-form">
         {% csrf_token %}
 
-        <!-- Título de la tarea -->
+        <!-- Titulo de la tarea -->
         <div class="form-group">
             <label for="{{ form.title.id_for_label }}">Título de la tarea:</label>
             {{ form.title }}
@@ -27,13 +27,19 @@
             {% endfor %}
         </div>
 
-        <!-- Descripción -->
+        <!-- Descripcion -->
         <div class="form-group">
             <label for="{{ form.description.id_for_label }}">Descripción:</label>
             {{ form.description }}
             {% for error in form.description.errors %}
                 <div class="error-message">{{ error }}</div>
             {% endfor %}
+        </div>
+
+        <!-- Prioridad -->
+        <div class="form-group">
+            <label for="id_priority">Prioridad</label>
+            {{ form.priority }}
         </div>
 
         <!-- Botones -->

@@ -13,11 +13,33 @@
     <a href="{% url 'tareas:nueva' %}" class="btn btn-primary">Nueva tarea</a>
 </div>
 
+<div class="filters">
+    <form method="get">
+        <label for="buscar">Buscar:</label>
+        <input type="text" name="buscar" id="buscar" value="{{ request.GET.buscar }}">
+
+        <label for="estado">Filtrar por estado:</label>
+        <select name="estado" id="estado">
+            <option value="">Todos</option>
+            <option value="completadas" {% if request.GET.estado == 'completadas' %}selected{% endif %}>Completadas</option>
+            <option value="incompletas" {% if request.GET.estado == 'incompletas' %}selected{% endif %}>Incompletas</option>
+        </select>
+
+        <label for="orden">Ordenar por fecha:</label>
+        <select name="orden" id="orden">
+            <option value="asc" {% if request.GET.orden == 'asc' %}selected{% endif %}>Ascendente</option>
+            <option value="desc" {% if request.GET.orden == 'desc' %}selected{% endif %}>Descendente</option>
+        </select>
+
+        <button type="submit" class="btn btn-secondary">Aplicar</button>
+    </form>
+</div>
+
 <ul>
     {% for tarea in tareas %}
         <li class="{% if tarea.is_completed %}completed{% else %}incomplete{% endif %}">
             <span class="task-title">
-                <strong>{{ tarea.title }}</strong> (vence: {{ tarea.due_date }})
+                <strong>{{ tarea.title }}</strong> (vence: {{ tarea.due_date }}) - <em>{{ tarea.priority }}</em>
             </span>
             <!-- Botones -->
             <span class="task-actions">
