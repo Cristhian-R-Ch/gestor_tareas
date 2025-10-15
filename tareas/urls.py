@@ -10,4 +10,5 @@ urlpatterns = [
     path('borrar/<int:pk>/', views.TaskDeleteView.as_view(), name='borrar'),
     path('toggle/<int:pk>/', views.toggle_completed, name='toggle'),
     path('guest/', views.login_guest, name='guest_login'),
+    path('demo-api/', views.demo_api, name='demo_api'),
 ]

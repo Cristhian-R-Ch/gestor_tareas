@@ -337,3 +337,25 @@ a:hover {
     margin-bottom: 25px;
     color: #e0e0e0;
 }
+
+
+/* =======================
+   Musica
+   ======================= */
+.lofi-player {
+    padding: 20px 150px;
+    background: #2a2a3d;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    margin-bottom: 20px; /* separación con otros elementos */
+}
+
+.lofi-player h3 {
+    color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+.lofi-player audio {
+    width: 100%; 
+    border-radius: 8px;
+}

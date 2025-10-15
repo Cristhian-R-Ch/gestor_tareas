@@ -13,11 +13,12 @@
     <form method="post" class="login-form">
         {% csrf_token %}
         {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
 
         <!-- Botones -->
         <div class="form-actions">
-            <button type="submit" class="btn btn-secondary">Entrar</button>
-            <a href="{% url 'landing' %}" class="btn btn-tertiary">Volver</a>
+            <button type="submit" class="btn btn-secondary" title="Login"><i class="fa-solid fa-right-to-bracket"></i></button>
+            <a href="{% url 'landing' %}" class="btn btn-tertiary" title="Volver"><i class="fa-solid fa-arrow-rotate-left"></i></a>
         </div>
     </form>
 </div>

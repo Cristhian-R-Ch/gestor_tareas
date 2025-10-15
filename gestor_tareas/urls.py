@@ -19,6 +19,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
 from tareas.views import logout_view, register
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +28,7 @@ urlpatterns = [
     path("accounts/login/", auth_views.LoginView.as_view(template_name="accounts/login.html"), name="login"),
     path("accounts/logout/", logout_view, name="logout"),
     path('accounts/register/', register, name='register'),
+    path('api/', include('tareas.urls_api')),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]

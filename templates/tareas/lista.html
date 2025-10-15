@@ -4,13 +4,13 @@
 
 {% block content %}
 <div class="top-actions">
-    <a href="{% url 'logout' %}" class="btn btn-danger">Cerrar sesión</a>
+    <a href="{% url 'logout' %}" class="btn btn-danger" title="Cerar sesion"><i class="fa-solid fa-right-from-bracket"></i></a>
 </div>
 
 <h1>Mis Tareas</h1>
 
 <div class="task-header">
-    <a href="{% url 'tareas:nueva' %}" class="btn btn-primary">Nueva tarea</a>
+    <a href="{% url 'tareas:nueva' %}" class="btn btn-primary" title="Nueva tarea"><i class="fa-solid fa-square-plus"></i></a>
 </div>
 
 <div class="filters">
@@ -34,7 +34,7 @@
         <button type="submit" class="btn btn-secondary">Aplicar</button>
     </form>
 </div>
-
+ 
 <ul>
     {% for tarea in tareas %}
         <li class="{% if tarea.is_completed %}completed{% else %}incomplete{% endif %}">
@@ -43,9 +43,9 @@
             </span>
             <!-- Botones -->
             <span class="task-actions">
-                <a href="{% url 'tareas:toggle' tarea.id %}" class="btn btn-tertiary">Estado</a>
-                <a href="{% url 'tareas:editar' tarea.id %}" class="btn btn-secondary">Editar</a>
-                <a href="{% url 'tareas:borrar' tarea.id %}" class="btn btn-danger">Borrar</a>
+                <a href="{% url 'tareas:toggle' tarea.id %}" class="btn btn-tertiary" title="Estado"><i class="fa-solid fa-arrows-rotate"></i></a>
+                <a href="{% url 'tareas:editar' tarea.id %}" class="btn btn-secondary" title="Editar"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="{% url 'tareas:borrar' tarea.id %}" class="btn btn-danger" title="Borrar"><i class="fa-solid fa-trash"></i></a>
             </span>
         </li>
     {% empty %}

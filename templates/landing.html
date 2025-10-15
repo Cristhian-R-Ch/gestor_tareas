@@ -6,13 +6,21 @@
 <div class="landing-container">
     <div class="landing-hero">
         <h1>Gestor de Tareas</h1>
-        <p>Organiza tus tareas de forma rapida y sencilla
-            <br> Manten todo bajo control desde cualquier lugar</p><br>
-        <!-- Botones -->
+        <p>Organiza tus tareas de forma rápida y sencilla
+            <br> Mantén todo bajo control desde cualquier lugar</p><br>
+
+        <!-- Botones de usuario -->
         <div class="landing-buttons">
             <a href="{% url 'register' %}" class="btn btn-primary">Registrarse</a>
-            <a href="{% url 'login' %}" class="btn btn-secondary">Iniciar Sesión</a>
-            <a href="{% url 'tareas:guest_login' %}" class="btn btn-tertiary">Entrar como Invitado</a>
+            <a href="{% url 'login' %}" class="btn btn-secondary" title="Iniciar Sesion"><i class="fa-solid fa-user"></i></a>
+            <a href="{% url 'tareas:guest_login' %}" class="btn btn-tertiary" title="Invitado"><i class="fa-solid fa-user-slash"></i></a>
+        </div>
+
+        <!-- Botón Demo API en su propio div -->
+        <div class="demo-api-container" style="margin-top:20px;">
+            <a href="{% url 'tareas:demo_api' %}" class="btn btn-quaternary" title="Demo API">
+                <i class="fa-solid fa-code"></i> Test API
+            </a>
         </div>
     </div>
 </div>

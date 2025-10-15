@@ -44,8 +44,8 @@
 
         <!-- Botones -->
         <div class="form-actions">
-            <button type="submit" class="btn btn-secondary">{{ accion }}</button>
-            <a href="{% url 'tareas:lista' %}" class="btn btn-tertiary">Volver a lista</a>
+            <button type="submit" class="btn btn-secondary" title="{{ accion }}"><i class="fa-solid fa-floppy-disk"></i></button>
+            <a href="{% url 'tareas:lista' %}" class="btn btn-tertiary" title="Volver"><i class="fa-solid fa-arrow-rotate-left"></i></a>
         </div>
     </form>
 </div>
